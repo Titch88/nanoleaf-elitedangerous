@@ -1,34 +1,194 @@
 [
-  "Docked, (on a landing pad)",
-  "Landed, (on planet surface)",
-  "Landing Gear Down",
-  "Shields Up",
-  "Supercruise",
-  "FlightAssist Off",
-  "Hardpoints Deployed",
-  "In Wing",
-  "LightsOn",
-  "Cargo Scoop Deployed",
-  "Silent Running,",
-  "Scooping Fuel",
-  "Srv Handbrake",
-  "Srv using Turret view",
-  "Srv Turret retracted (close to ship)",
-  "Srv DriveAssist",
-  "Fsd MassLocked",
-  "Fsd Charging",
-  "Fsd Cooldown",
-  "Low Fuel ( < 25% )",
-  "Over Heating ( > 100% )",
-  "Has Lat Long",
-  "IsInDanger",
-  "Being Interdicted",
-  "In MainShip",
-  "In Fighter",
-  "In SRV",
-  "Hud in Analysis mode",
-  "Night Vision",
-  "Altitude from Average radius",
-  "fsdJump",
-  "srvHighBeam"
+  {
+    "id": "Docked (on a landing pad)",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Landed (on planet surface)",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Landing Gear Down",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Shields Down",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": true
+  },
+  {
+    "id": "Supercruise",
+    "isPunctual": true,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "FlightAssist Off",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Hardpoints Deployed",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "In Wing",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "LightsOn",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Cargo Scoop Deployed",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Silent Running",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Scooping Fuel",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Srv Handbrake",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Srv using Turret view",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Srv Turret retracted (close to ship)",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Srv DriveAssist",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Fsd MassLocked",
+    "isPunctual": true,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Fsd Charging",
+    "isPunctual": true,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Fsd Cooldown",
+    "isPunctual": true,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Low Fuel ( < 25% )",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Over Heating ( > 100% )",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "Has Lat Long",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "IsInDanger",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Being Interdicted",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "In MainShip",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "In Fighter",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "In SRV",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Hud in Analysis mode",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Night Vision",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "Altitude from Average radius",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  },
+  {
+    "id": "fsdJump",
+    "isPunctual": false,
+    "isIgnored": false,
+    "isNegative": false
+  },
+  {
+    "id": "srvHighBeam",
+    "isPunctual": false,
+    "isIgnored": true,
+    "isNegative": false
+  }
 ]

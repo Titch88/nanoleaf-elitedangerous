@@ -8,24 +8,24 @@ const convertFlags = (flags) =>
     ? Array.from(flags.toString(2).padStart(32, "0")).map(Number).reverse()
     : Array.from("".padStart(32, "0"));
 
-const compareFlags = (oldFlags, newFlags) => {
-  const binaryOldFlags = convertFlags(oldFlags);
+const getActiveFlags = (newFlags) => {
   const binaryNewFlags = convertFlags(newFlags);
   console.log(binaryNewFlags);
   const updatedFlags = binaryNewFlags
     .map((flag, idx) =>
-      flag !== binaryOldFlags[idx] ? { flag: bits[idx], value: flag } : false
+      (flag === 1 && !bits[idx].isIgnored && !bits[idx].isNegative) ||
+      (flag === 0 && !bits[idx].isIgnored && bits[idx].isNegative)
+        ? { id: bits[idx].id, isPunctual: bits[idx].isPunctual }
+        : false
     )
     .filter((flag) => !!flag);
   console.log(updatedFlags);
   return updatedFlags;
 };
 
-const handleFlags = (oldFlags, newFlags) => {
-  const updatedFlags = compareFlags(oldFlags, newFlags);
-  for (let f of updatedFlags) {
-    eventHandler(f.flag, f.value);
-  }
+const handleFlags = (newFlags) => {
+  const activeFlags = getActiveFlags(newFlags);
+  eventHandler(activeFlags);
   // to be continued
 };
 

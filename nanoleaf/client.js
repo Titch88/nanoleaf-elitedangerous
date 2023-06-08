@@ -61,16 +61,17 @@ const saveCurrentLighting = async () => {
   }
 };
 
-const eventHandler = async (event, value) => {
-  saveCurrentLighting();
-  if (event === "Hardpoints Deployed") {
-    // persistent event
-    if (value) {
-      await firstClient.setRgbColor(200, 0, 0);
-    } else {
-      resetLighting(firstClient, defaultStatus);
-    }
-  }
+const handlePunctualFlags = (flags) => {
+  console.log("punctual", flags);
+};
+
+const handleContinuousFlags = (flags) => {
+  console.log("continuous", flags);
+};
+
+const eventHandler = async (activeFlags) => {
+  handlePunctualFlags(activeFlags.filter(({ isPunctual }) => isPunctual));
+  handleContinuousFlags(activeFlags.filter(({ isPunctual }) => !isPunctual));
 };
 
 export default eventHandler;
