@@ -1,4 +1,5 @@
 import bits from "./elite/bits.json" assert { type: "json" };
+import eventHandler from "./nanoleaf/client.js";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -22,6 +23,9 @@ const compareFlags = (oldFlags, newFlags) => {
 
 const handleFlags = (oldFlags, newFlags) => {
   const updatedFlags = compareFlags(oldFlags, newFlags);
+  for (let f of updatedFlags) {
+    eventHandler(f.flag, f.value);
+  }
   // to be continued
 };
 

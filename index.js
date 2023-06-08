@@ -12,12 +12,8 @@ console.log("Watching for changes in ", defaultJournalLocation);
 const currentStatus = {};
 const currentStatusProxy = new Proxy(currentStatus, {
   set: (target, key, newFlags) => {
-    if (target[key] === newFlags) {
-      return false;
-    }
     const oldFlags = target[key];
     target[key] = newFlags;
-    // console.log("updated !");
     handleFlags(oldFlags, newFlags);
 
     return true;
