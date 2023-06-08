@@ -10,16 +10,14 @@ const convertFlags = (flags) =>
 
 const getActiveFlags = (newFlags) => {
   const binaryNewFlags = convertFlags(newFlags);
-  console.log(binaryNewFlags);
   const updatedFlags = binaryNewFlags
     .map((flag, idx) =>
       (flag === 1 && !bits[idx].isIgnored && !bits[idx].isNegative) ||
       (flag === 0 && !bits[idx].isIgnored && bits[idx].isNegative)
-        ? { id: bits[idx].id, isPunctual: bits[idx].isPunctual }
+        ? bits[idx]
         : false
     )
     .filter((flag) => !!flag);
-  console.log(updatedFlags);
   return updatedFlags;
 };
 

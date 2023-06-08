@@ -12,6 +12,8 @@ console.log("Watching for changes in ", defaultJournalLocation);
 const currentStatus = {};
 const currentStatusProxy = new Proxy(currentStatus, {
   set: (target, key, newFlags) => {
+    // if flags didn't change, do nothing
+    if (target[key] === newFlags) return true;
     target[key] = newFlags;
     handleFlags(newFlags);
     return true;
@@ -24,11 +26,9 @@ const main = () => {
     if (newFile.includes(defaultJournalName)) {
       try {
         await sleep(200);
-        // console.log(event, path);
         const content = await fs.readFile(path);
         const opened = JSON.parse(content);
         currentStatusProxy.flags = opened.Flags;
-        // console.log(opened);
       } catch (e) {
         console.log("erreur", e);
       }
