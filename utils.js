@@ -1,15 +1,16 @@
-const bits = require("./elite/bits.json");
+import bits from "./elite/bits.json" assert { type: "json" };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const convertFlags = (flags) =>
   flags
     ? Array.from(flags.toString(2).padStart(32, "0")).map(Number).reverse()
-    : "".padStart(32, "0");
+    : Array.from("".padStart(32, "0"));
 
 const compareFlags = (oldFlags, newFlags) => {
-  binaryOldFlags = convertFlags(oldFlags);
-  binaryNewFlags = convertFlags(newFlags);
+  const binaryOldFlags = convertFlags(oldFlags);
+  const binaryNewFlags = convertFlags(newFlags);
+  console.log(binaryNewFlags);
   const updatedFlags = binaryNewFlags
     .map((flag, idx) =>
       flag !== binaryOldFlags[idx] ? { flag: bits[idx], value: flag } : false
@@ -24,7 +25,4 @@ const handleFlags = (oldFlags, newFlags) => {
   // to be continued
 };
 
-module.exports = {
-  sleep,
-  handleFlags,
-};
+export { sleep, handleFlags };

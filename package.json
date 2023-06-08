@@ -2,12 +2,15 @@
   "name": "nanoleaf-elitedangerous",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "chokidar": "^3.5.3",
+    "dotenv": "^16.1.4",
+    "nanoleaf-client": "^0.2.2",
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon --experimental-modules index.js"
   }
 }

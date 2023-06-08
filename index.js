@@ -1,7 +1,7 @@
-const chokidar = require("chokidar");
-const fs = require("fs").promises;
-const os = require("os");
-const { handleFlags, sleep } = require("./utils");
+import chokidar from "chokidar";
+import { promises as fs } from "fs";
+import os from "os";
+import { handleFlags, sleep } from "./utils.js";
 
 const defaultJournalLocation = `${os.homedir()}\\Saved Games\\Frontier Developments\\Elite Dangerous`;
 
