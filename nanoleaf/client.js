@@ -10,17 +10,7 @@ const secondClient = new NanoleafClient(
   process.env.API_KEY_2
 );
 
-const BASE_STATUS = {
-  saturation: {
-    value: 0,
-  },
-  brightness: {
-    value: 100,
-  },
-  hue: { value: 0 },
-};
-
-let defaultStatus = "#FFFFFFF";
+let defaultStatus = "#494949";
 
 const getCurrentLighting = async (client) => {
   const results = await Promise.all([
@@ -37,8 +27,11 @@ const getCurrentLighting = async (client) => {
 };
 
 const setLighting = async (client, hex) => {
-  await client.setHexColor(hex);
-
+  try {
+    await client.setHexColor(hex);
+  } catch (e) {
+    console.log(e);
+  }
   await sleep(300);
 };
 
@@ -66,28 +59,50 @@ const CONTINUOUS_FLAGS_VALUES = {
   "Low Fuel ( < 25% )": { value: "#E90000", isStatic: true },
   "Over Heating ( > 100% )": {
     values: ["#FF7400", "#FF0000"],
-    interval: 500,
+    interval: 300,
     isStatic: false,
   },
   "Being Interdicted": { value: "#8E2C00", isStatic: true },
   "Shields Down": { value: "#DD34C2", isStatic: true },
+  "Fsd Charging": {
+    value: "#D60079",
+    isStatic: true,
+  },
+  "Fsd Cooldown": {
+    value: "#D60079",
+    isStatic: true,
+  },
+  fsdJump: {
+    value: "#D60079",
+    isStatic: true,
+  },
+  "Fsd MassLocked": {
+    value: "#D60079",
+    isStatic: true,
+  },
 };
 
 let animationPlaying = false;
 let animationLoop = null;
+let currentlyPlayingFlag = null;
+let animationCount = 0;
+let isBusy = false;
 
 const handleLighting = async (flagValue) => {
   if (animationPlaying) {
-    ("");
     clearImmediate(animationLoop);
     animationPlaying = false;
+    console.log("animation stopped");
   }
+  await sleep(1000);
   if (flagValue.isStatic) {
     setLighting(firstClient, flagValue.value);
   } else {
     animationPlaying = true;
     animationLoop = setImmediate(async () => {
+      animationCount++;
       while (animationPlaying) {
+        console.log("in animation ...", animationCount);
         for (const color of flagValue.values) {
           await setLighting(firstClient, color);
           await sleep(flagValue.interval);
@@ -97,24 +112,29 @@ const handleLighting = async (flagValue) => {
   }
 };
 
-const handleContinuousFlags = async (flags) => {
+const eventHandler = async (flags) => {
+  if (isBusy) return;
+  isBusy = true;
   const currentFlag =
     flags.length > 0 ? flags.sort((a, b) => b.order - a.order)[0] : null;
-  console.log("current continuous flag", currentFlag && currentFlag.id);
 
-  if (currentFlag) {
+  if (
+    currentFlag &&
+    currentFlag.id !== currentlyPlayingFlag &&
+    CONTINUOUS_FLAGS_VALUES[currentFlag.id]
+  ) {
+    console.log("new flag : ", currentFlag && currentFlag.id);
+
     const flagValue = CONTINUOUS_FLAGS_VALUES[currentFlag.id];
-    if (flagValue) {
-      handleLighting(flagValue);
-    } else setLighting(firstClient, defaultStatus);
-  } else {
-    setLighting(firstClient, defaultStatus);
-  }
-};
+    await handleLighting(flagValue);
+    currentlyPlayingFlag = currentFlag.id;
 
-const eventHandler = async (activeFlags) => {
-  handlePunctualFlags(activeFlags.filter(({ isPunctual }) => isPunctual));
-  handleContinuousFlags(activeFlags.filter(({ isPunctual }) => !isPunctual));
+    isBusy = false;
+  } else {
+    console.log("new flag : default");
+    await setLighting(firstClient, defaultStatus);
+    isBusy = false;
+  }
 };
 
 export default eventHandler;

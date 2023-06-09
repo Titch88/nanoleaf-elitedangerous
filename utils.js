@@ -18,13 +18,13 @@ const getActiveFlags = (newFlags) => {
         : false
     )
     .filter((flag) => !!flag);
+  console.log(updatedFlags);
   return updatedFlags;
 };
 
 const handleFlags = (newFlags) => {
   const activeFlags = getActiveFlags(newFlags);
   eventHandler(activeFlags);
-  // to be continued
 };
 
 export { sleep, handleFlags };

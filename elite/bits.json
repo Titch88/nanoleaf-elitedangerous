@@ -1,224 +1,192 @@
 [
   {
     "id": "Docked (on a landing pad)",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Landed (on planet surface)",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Landing Gear Down",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Shields Down",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": true,
     "order": 30
   },
   {
     "id": "Supercruise",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
-    "order": null
+    "order": 20
   },
   {
     "id": "FlightAssist Off",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Hardpoints Deployed",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 35
   },
   {
     "id": "In Wing",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "LightsOn",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Cargo Scoop Deployed",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Silent Running",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 40
   },
   {
     "id": "Scooping Fuel",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 50
   },
   {
     "id": "Srv Handbrake",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Srv using Turret view",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Srv Turret retracted (close to ship)",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Srv DriveAssist",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Fsd MassLocked",
-    "isPunctual": true,
     "isIgnored": false,
     "isNegative": false,
-    "order": null
+    "order": 10
   },
   {
     "id": "Fsd Charging",
-    "isPunctual": true,
     "isIgnored": false,
     "isNegative": false,
-    "order": null
+    "order": 45
   },
   {
     "id": "Fsd Cooldown",
-    "isPunctual": true,
     "isIgnored": false,
     "isNegative": false,
-    "order": null
+    "order": 45
   },
   {
     "id": "Low Fuel ( < 25% )",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 80
   },
   {
     "id": "Over Heating ( > 100% )",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 90
   },
   {
     "id": "Has Lat Long",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "IsInDanger",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Being Interdicted",
-    "isPunctual": false,
     "isIgnored": false,
     "isNegative": false,
     "order": 100
   },
   {
     "id": "In MainShip",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "In Fighter",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "In SRV",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Hud in Analysis mode",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Night Vision",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "Altitude from Average radius",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
   },
   {
     "id": "fsdJump",
-    "isPunctual": true,
     "isIgnored": false,
     "isNegative": false,
     "order": 110
   },
   {
     "id": "srvHighBeam",
-    "isPunctual": false,
     "isIgnored": true,
     "isNegative": false,
     "order": null
